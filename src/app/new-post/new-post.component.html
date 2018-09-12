@@ -1,0 +1,29 @@
+<form #postForm="ngForm" (ngSubmit)="onSubmit()" [hidden]=submitted>
+
+  <input type="text" id="title" name="title" placeholder="Enter title" [(ngModel)]="post.title" />
+  <br>
+  <br>
+  <select id="userId" name="userId" [(ngModel)]="post.userId">
+    <option *ngFor="let userId of userIds">
+      {{userId}}
+    </option>
+
+  </select>
+  <br>
+  <br>
+  <input type="text" id="body" name="body" placeholder="Enter body" [(ngModel)]="post.body" />
+  <br>
+  <br>
+  <input type="submit" name="submit" value="Submit" id="submit">
+  <br>
+  <br>
+</form>
+<div [hidden]=!submitted>
+  Title: {{post.title}}
+  <br> User ID; {{post.userId}}
+  <br> Body : {{post.body}}
+  <br>
+  <button (click)="goBack()"> Back</button>
+
+</div>
+
