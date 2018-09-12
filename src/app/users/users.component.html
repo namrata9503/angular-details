@@ -1,0 +1,15 @@
+<p>
+ {{ greeting }}
+</p>
+
+<ul>
+    <li *ngFor="let user of users$">
+        <a routerLink="/details/{{user.id}}">
+          {{user.name}}</a>
+        <ul>
+          <li>{{user.username}}</li>
+          <li><a href="http://{{user.website}}">{{user.website}}</a></li>
+          <li><a href="mailto:{{user.email}}">{{user.email}}</a></li>
+        </ul>
+      </li>
+</ul>
