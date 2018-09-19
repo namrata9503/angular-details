@@ -22,8 +22,12 @@
   Title: {{post.title}}
   <br> User ID; {{post.userId}}
   <br> Body : {{post.body}}
-  <br>
-  <button (click)="goBack()"> Back</button>
+  <br><br>
 
+  {{postId.id}}
+  <br><br>
+  <button (click)="goBack()"> Back</button>
+  <button (click)="createPost()">Create Post</button>
+  <button (click)="removePost()">Delete Post</button>
 </div>
 

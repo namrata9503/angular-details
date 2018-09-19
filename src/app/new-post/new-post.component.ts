@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Observable } from 'rxjs';
+import { DataService } from '../data.service';
+
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
@@ -11,9 +14,10 @@ export class NewPostComponent implements OnInit {
   userIds: Array<number> = [1, 2, 3, 4, 5, 6];
   post: Object = {};
   submitted : boolean = false;
+  postId : Object = {};
 
 
-  constructor() { }
+  constructor( private data : DataService) { }
 
   ngOnInit() {
 
@@ -25,5 +29,15 @@ export class NewPostComponent implements OnInit {
 
   goBack() {
     this.submitted = false;
+  }
+
+  createPost(){
+    //console.log(this.data);
+      this.data.postCreate(this.post).subscribe((data) => this.postId = data)
+  }
+
+  removePost()
+  {
+    this.data.delRemovePost({id : 1}).subscribe((data) => console.log(data))
   }
 }
